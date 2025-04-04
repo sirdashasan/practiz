@@ -34,3 +34,19 @@
   transition: all 0.3s ease-in-out;
   opacity: 1;
 }
+
+/* Mobil */
+@media (max-width: 600px) {
+  .card {
+    padding: 1rem;
+    margin: 1rem;
+  }
+
+  .question {
+    font-size: 1.1rem;
+  }
+
+  .answer {
+    font-size: 0.95rem;
+  }
+}

@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "question": "JVM nedir?",
+    "answer": "JVM, bir bilgisayarın java kodunu çalıştırabilmesine olanak sağlayan sanal makinedir. Bytecode dosyalarını makine koduna çevirerek platform bağımsız çalışmayı sağlar."
+  },
+  {
+    "id": 2,
+    "question": "OOP nedir?",
+    "answer": "Nesne Yönelimli Programlama, yazılımın nesneler ve bu nesnelerin etkileşimleri etrafında tasarlandığı bir programlama paradigmasıdır."
+  },
+  {
+    "id": 3,
+    "question": "Garbage Collector nedir?",
+    "answer": "Garbage Collector, Java'da kullanılmayan nesneleri otomatik olarak hafızadan temizleyen bir mekanizmadır."
+  }
+]

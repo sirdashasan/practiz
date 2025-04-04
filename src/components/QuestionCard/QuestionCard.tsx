@@ -1,29 +1,20 @@
-import { useState } from "react";
-import "./styles.css";
+import './styles.css';
 
-const QuestionCard = () => {
-  const [showAnswer, setShowAnswer] = useState(false);
+type Props = {
+  question: string;
+  answer: string;
+  showAnswer: boolean;
+  onToggleAnswer: () => void;
+};
 
-  const handleToggleAnswer = () => {
-    setShowAnswer((prev) => !prev);
-  };
-
+const QuestionCard = ({ question, answer, showAnswer, onToggleAnswer }: Props) => {
   return (
     <div className="card">
-      <h2 className="question">JVM nedir?</h2>
-
-      <button className="button" onClick={handleToggleAnswer}>
-        {showAnswer ? "Cevabı Gizle" : "Cevabı Göster"}
+      <h2 className="question">{question}</h2>
+      <button className="button" onClick={onToggleAnswer}>
+        {showAnswer ? 'Cevabı Gizle' : 'Cevabı Göster'}
       </button>
-
-      {showAnswer && (
-        <p className="answer">
-          JVM, bir bilgisayarın java kodunu çalıştırabilmesine olanak sağlayan
-          sanal makineye verilen addır. bytecode uzantılı dosyaları makine
-          koduna çeviren bu soyut makine, java kodunu makine ve cihaz bağımsız
-          aynı şekilde işletmemize olanak sağlar.
-        </p>
-      )}
+      {showAnswer && <p className="answer">{answer}</p>}
     </div>
   );
 };

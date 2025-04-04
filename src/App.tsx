@@ -1,10 +1,10 @@
-import QuestionCard from "./components/QuestionCard/QuestionCard";
+import Practice from "./components/Practice/Practice";
 
 function App() {
   return (
     <div>
       <h1 style={{ textAlign: "center" }}>Practiz</h1>
-      <QuestionCard />
+      <Practice />
     </div>
   );
 }

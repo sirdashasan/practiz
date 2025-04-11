@@ -1,12 +1,44 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./styles.css";
+import axios from "axios";
+
+interface Category {
+  id: number;
+  name: string;
+}
+
+interface SubCategory {
+  id: number;
+  name: string;
+  categoryId: number;
+}
 
 const Navbar = () => {
   const [showDropdown, setShowDropdown] = useState(false);
+  const [categories, setCategories] = useState<Category[]>([]);
+const [subCategories, setSubCategories] = useState<SubCategory[]>([]);
 
   const toggleDropdown = () => {
     setShowDropdown((prev) => !prev);
   };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const [catRes, subRes] = await Promise.all([
+          axios.get("http://localhost:8080/practiz/api/categories"),
+          axios.get("http://localhost:8080/practiz/api/subcategories"),
+        ]);
+        setCategories(catRes.data);
+        setSubCategories(subRes.data);
+      } catch (error) {
+        console.error("Veri çekme hatası:", error);
+      }
+    };
+  
+    fetchData();
+  }, []);
+  
 
   return (
     <nav className="navbar">
@@ -19,12 +51,17 @@ const Navbar = () => {
 
         {showDropdown && (
           <ul className="dropdown-menu">
-            <li className="dropdown-item">Yazılım</li>
-            <li className="dropdown-item-sub">Java</li>
-            <li className="dropdown-item-sub">Frontend</li>
-            <li className="dropdown-item-sub">SQL</li>
-            <li className="dropdown-item">Sınav</li>
-            <li className="dropdown-item-sub">KPSS</li>
+            {categories.map((category) => (
+              <div key={category.id}>
+                <li className="dropdown-item">{category.name}</li>
+                {subCategories.filter((sub) => sub.categoryId === category.id)
+                .map((sub) => (
+                  <li key={sub.id} className="dropdown-item-sub">{sub.name}</li>
+                ))
+                }
+
+              </div>
+            ))}
           </ul>
         )}
       </div>

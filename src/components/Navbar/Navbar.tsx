@@ -19,9 +19,12 @@ const Navbar = () => {
 
         {showDropdown && (
           <ul className="dropdown-menu">
-            <li className="dropdown-item">Java</li>
-            <li className="dropdown-item">Frontend</li>
-            <li className="dropdown-item">SQL</li>
+            <li className="dropdown-item">Yazılım</li>
+            <li className="dropdown-item-sub">Java</li>
+            <li className="dropdown-item-sub">Frontend</li>
+            <li className="dropdown-item-sub">SQL</li>
+            <li className="dropdown-item">Sınav</li>
+            <li className="dropdown-item-sub">KPSS</li>
           </ul>
         )}
       </div>

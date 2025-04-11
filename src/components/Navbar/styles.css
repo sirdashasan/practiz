@@ -45,16 +45,22 @@
 .dropdown-item {
   padding: 0.5rem 1rem;
   transition: background-color 0.2s ease;
+  font-weight: bold;
 }
 
-.dropdown-item:hover {
+.dropdown-item-sub {
+  padding: 0.5rem 1rem;
+  transition: background-color 0.2s ease;
+}
+
+.dropdown-item-sub:hover {
   background-color: #f3f4f6;
 }
 
 /* Mobil */
 @media (max-width: 600px) {
   .navbar {
-    flex-direction: row; 
+    flex-direction: row;
     align-items: center;
   }
 

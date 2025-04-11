@@ -16,7 +16,7 @@ interface SubCategory {
 const Navbar = () => {
   const [showDropdown, setShowDropdown] = useState(false);
   const [categories, setCategories] = useState<Category[]>([]);
-const [subCategories, setSubCategories] = useState<SubCategory[]>([]);
+  const [subCategories, setSubCategories] = useState<SubCategory[]>([]);
 
   const toggleDropdown = () => {
     setShowDropdown((prev) => !prev);
@@ -35,10 +35,9 @@ const [subCategories, setSubCategories] = useState<SubCategory[]>([]);
         console.error("Veri çekme hatası:", error);
       }
     };
-  
+
     fetchData();
   }, []);
-  
 
   return (
     <nav className="navbar">
@@ -54,12 +53,13 @@ const [subCategories, setSubCategories] = useState<SubCategory[]>([]);
             {categories.map((category) => (
               <div key={category.id}>
                 <li className="dropdown-item">{category.name}</li>
-                {subCategories.filter((sub) => sub.categoryId === category.id)
-                .map((sub) => (
-                  <li key={sub.id} className="dropdown-item-sub">{sub.name}</li>
-                ))
-                }
-
+                {subCategories
+                  .filter((sub) => sub.categoryId === category.id)
+                  .map((sub) => (
+                    <li key={sub.id} className="dropdown-item-sub">
+                      {sub.name}
+                    </li>
+                  ))}
               </div>
             ))}
           </ul>
